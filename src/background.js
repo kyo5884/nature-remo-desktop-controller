@@ -29,6 +29,14 @@ const mb = menubar({
     process.platform === 'win32' ? 'icons/icon.ico' : 'icons/16x16.png'
   ),
   index: process.env.WEBPACK_DEV_SERVER_URL,
+  browserWindow:
+    process.platform === 'darwin'
+      ? {
+          transparent: true,
+          vibrancy: 'menu',
+          backgroundColor: '#00000000',
+        }
+      : null,
   webPreferences: {
     // Use pluginOptions.nodeIntegration, leave this alone
     // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
