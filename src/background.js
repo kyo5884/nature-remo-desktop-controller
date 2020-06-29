@@ -55,7 +55,10 @@ mb.on('ready', async () => {
   }
 })
 mb.on('after-create-window', () => {
-  if (isDevelopment) mb.window.openDevTools()
+  if (isDevelopment) {
+    mb.window.openDevTools()
+    mb.window.setAlwaysOnTop(true)
+  }
 })
 
 // function createWindow() {
