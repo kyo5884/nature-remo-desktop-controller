@@ -1,10 +1,14 @@
 'use strict'
 
+/* global __static */
+
 import { app, protocol, BrowserWindow } from 'electron'
 import {
   createProtocol,
   installVueDevtools,
 } from 'vue-cli-plugin-electron-builder/lib'
+import { menubar } from 'menubar'
+import path from 'path'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -15,6 +19,27 @@ let win
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } },
 ])
+
+const menubarIcon = () => {
+  if (process.platform === 'win32') return path.join(__static, 'icons/icon.ico')
+  else return path.join(__static, 'icons/16x16.png')
+}
+
+const mb = menubar({
+  icon: menubarIcon(),
+  index: process.env.WEBPACK_DEV_SERVER_URL,
+  webPreferences: {
+    // Use pluginOptions.nodeIntegration, leave this alone
+    // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
+    nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+  },
+})
+mb.on('ready', () => {
+  console.log('menubar app started')
+})
+mb.on('after-create-window', () => {
+  if (isDevelopment) mb.window.openDevTools()
+})
 
 function createWindow() {
   // Create the browser window.
