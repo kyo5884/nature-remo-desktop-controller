@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" class="dark text-primary">
     <img alt="Vue logo" src="./assets/icon.png" />
-    <p style="color: white;">{{ username }}</p>
+    <p>{{ username }}</p>
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -26,3 +26,14 @@ export default {
   },
 }
 </script>
+
+<style>
+.dark {
+  --color-primary: #fff;
+  --color-secondary: #aaa;
+}
+.light {
+  --color-primary: #000;
+  --color-secondary: #555;
+}
+</style>
