@@ -1,24 +1,30 @@
-# nature-remo-desktop-controller
+# Natrue Remo Desktop Controller
 
-## Project setup
-```
+Menubar / Tasktray app for [Nature Remo](https://en.nature.global/en/)
+
+Developed with Vue and Electron
+
+## Usage
+
+WIP.
+
+## Development
+
+```bash
+# Install Dependencies
 yarn install
+
+# Start Electron with hot reloading
+yarn electron:serve
+
+# Compiles and minifies for production
+yarn electron:build
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## License
 
-### Compiles and minifies for production
-```
-yarn build
-```
+MIT
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Author
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+kyo5884 - kyo5884.com
