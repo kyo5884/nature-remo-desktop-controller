@@ -2,7 +2,7 @@
   "name": "nature-remo-desktop-controller",
   "version": "0.1.0",
   "private": true,
-  "license" : "MIT",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -16,6 +16,7 @@
   "main": "background.js",
   "dependencies": {
     "menubar": "^9.0.1",
+    "nature-remo": "^1.2.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
