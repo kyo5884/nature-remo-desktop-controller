@@ -1,19 +1,24 @@
 <template>
   <div id="app" class="dark text-primary">
-    <img alt="Vue logo" src="./assets/icon.png" />
-    <p>{{ username }}</p>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Header />
+    <div class="m-2">
+      <img alt="Vue logo" src="./assets/icon.png" />
+      <p>{{ username }}</p>
+      <HelloWorld msg="Welcome to Your Vue.js App" />
+    </div>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
 import { Cloud } from 'nature-remo'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    Header,
   },
   data: () => {
     return {
