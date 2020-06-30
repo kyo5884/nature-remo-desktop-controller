@@ -21,24 +21,29 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } },
 ])
 
+const appearance = () => {
+  if (process.platform === 'darwin')
+    return {
+      transparent: true,
+      vibrancy: 'menu',
+      backgroundColor: '#00000000',
+    }
+  else return {}
+}
+
 const mb = menubar({
   icon: path.join(
     __static,
     process.platform === 'win32' ? 'icons/icon.ico' : 'icons/16x16.png'
   ),
   index: process.env.WEBPACK_DEV_SERVER_URL,
-  browserWindow:
-    process.platform === 'darwin'
-      ? {
-          transparent: true,
-          vibrancy: 'menu',
-          backgroundColor: '#00000000',
-        }
-      : null,
-  webPreferences: {
-    // Use pluginOptions.nodeIntegration, leave this alone
-    // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
-    nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+  browserWindow: {
+    ...appearance(),
+    webPreferences: {
+      // Use pluginOptions.nodeIntegration, leave this alone
+      // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
+      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+    },
   },
 })
 mb.on('ready', async () => {
