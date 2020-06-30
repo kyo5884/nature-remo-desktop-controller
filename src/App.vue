@@ -12,6 +12,8 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
+import Settings from './settings'
+
 import { Cloud } from 'nature-remo'
 
 export default {
@@ -26,7 +28,7 @@ export default {
     }
   },
   async mounted() {
-    const remo = new Cloud('ACCESS_TOKEN')
+    const remo = new Cloud(Settings.get('api_token'))
     this.username = (await remo.getUser()).nickname
   },
 }
