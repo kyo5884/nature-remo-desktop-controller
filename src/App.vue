@@ -1,28 +1,46 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app" class="dark text-primary">
+    <Header />
+    <div class="m-2">
+      <img alt="Vue logo" src="./assets/icon.png" />
+      <p>{{ username }}</p>
+      <HelloWorld msg="Welcome to Your Vue.js App" />
+    </div>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import Settings from './settings'
+
+import { Cloud } from 'nature-remo'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    Header,
+  },
+  data: () => {
+    return {
+      username: null,
+    }
+  },
+  async mounted() {
+    const remo = new Cloud(Settings.get('api_token'))
+    this.username = (await remo.getUser()).nickname
   },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.dark {
+  --color-primary: #fff;
+  --color-secondary: #aaa;
+}
+.light {
+  --color-primary: #000;
+  --color-secondary: #555;
 }
 </style>
