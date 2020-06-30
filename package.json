@@ -18,6 +18,7 @@
     "electron-store": "^5.2.0",
     "menubar": "^9.0.1",
     "nature-remo": "^1.2.2",
+    "tailwindcss": "^1.4.6",
     "vue": "^2.6.11"
   },
   "devDependencies": {
