@@ -1,32 +1,25 @@
 <template>
   <header class="text-white sticky top-0 inset-x-0 flex flex-col p-3">
     <div class="h-12 flex items-center justify-between flex-1">
-      <h1 class="text-base font-bold p-1">{{ device.name }}</h1>
+      <h1 class="font-bold p-1">{{ device.name }}</h1>
       <button
         @click="openSettings()"
-        class="focus:outline-none focus:bg-accent-700 hover:bg-accent-600 rounded p-1"
+        class="focus:outline-none focus:bg-accent-700 hover:bg-accent-800 rounded p-1"
       >
         <icon-cog-outline />
       </button>
     </div>
-    <div class="flex items-center">
-      <h2
-        v-if="device.newest_events.te"
-        class="text-4xl mr-3 flex items-center"
-      >
-        <icon-thermometer-low class="m-1" />{{ device.newest_events.te.val }}
+    <div class="text-base flex items-center mb-1">
+      <h2 v-if="device.newest_events.te" class="mr-3 flex items-center">
+        <icon-thermometer-low :size="18" class="mr-1" />
+        {{ device.newest_events.te.val }}
       </h2>
-      <h2
-        v-if="device.newest_events.hu"
-        class="text-4xl mr-3 flex items-center"
-      >
-        <icon-water-percent class="m-1" />{{ device.newest_events.hu.val }}
+      <h2 v-if="device.newest_events.hu" class="mr-3 flex items-center">
+        <icon-water-percent :size="21" class="" />
+        {{ device.newest_events.hu.val }}
       </h2>
-      <h2
-        v-if="device.newest_events.li"
-        class="text-4xl mr-3 flex items-center"
-      >
-        <icon-lightbulb-on-outline class="m-1" />
+      <h2 v-if="device.newest_events.li" class="mr-3 flex items-center">
+        <icon-lightbulb-on :size="18" class="mr-1" />
         {{ device.newest_events.li.val }}
       </h2>
     </div>
@@ -50,6 +43,9 @@ export default {
 </script>
 <style scoped>
 header {
-  background: linear-gradient(var(--color-accent-700), var(--color-accent-800));
+  background: linear-gradient(
+    var(--color-accent-700) -20%,
+    var(--color-accent-800) 120%
+  );
 }
 </style>
