@@ -43,9 +43,20 @@ export default {
     }
   },
   async mounted() {
-    this.user = await Remo.getUser()
-    this.devices = await Remo.getDevices()
-    this.appliances = await Remo.getAppliances()
+    if (!Settings.get('api_token')) {
+      Settings.set('api_token', '')
+      this.openSettings()
+      return false
+    }
+
+    try {
+      this.user = await Remo.getUser()
+      this.devices = await Remo.getDevices()
+      this.appliances = await Remo.getAppliances()
+    } catch (error) {
+      console.error(error)
+    }
+
     console.log(this.appliances)
 
     // mock values for Remo mini
