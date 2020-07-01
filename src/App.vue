@@ -3,16 +3,13 @@
     <div v-for="device in devices" :key="device.id">
       <Header :device="device" />
       <div class="m-2">
-        <img alt="Vue logo" src="./assets/icon.png" />
         <p>{{ username }}</p>
-        <HelloWorld msg="Welcome to Your Vue.js App" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
 import Settings from './settings'
 
@@ -21,7 +18,6 @@ import { Cloud } from 'nature-remo'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     Header,
   },
   data: () => {
