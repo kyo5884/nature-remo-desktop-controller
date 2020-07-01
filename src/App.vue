@@ -34,7 +34,7 @@ export default {
 
     // mock values for Remo mini
     // this.devices[0].newest_events.hu = { val: 68 }
-    // this.devices[0].newest_events.li = { val: 70.5 }
+    // this.devices[0].newest_events.il = { val: 70.5 }
   },
 }
 </script>

@@ -18,9 +18,9 @@
         <icon-water-percent :size="21" class="" />
         {{ device.newest_events.hu.val }}
       </h2>
-      <h2 v-if="device.newest_events.li" class="mr-3 flex items-center">
+      <h2 v-if="device.newest_events.il" class="mr-3 flex items-center">
         <icon-lightbulb-on :size="18" class="mr-1" />
-        {{ device.newest_events.li.val }}
+        {{ device.newest_events.il.val }}
       </h2>
     </div>
   </header>
