@@ -6,6 +6,7 @@
         v-for="appliance in appliances"
         :key="appliance.id"
         :appliance="appliance"
+        @sendSignal="event => sendSignal(event)"
       />
       <footer class="text-xs p-2 text-center">
         logged in as {{ user.nickname }}
@@ -18,9 +19,7 @@
 import Header from './components/Header'
 import Appliance from './components/Appliance'
 
-import Settings from './settings'
-
-import { Cloud } from 'nature-remo'
+import Remo from './remo'
 
 export default {
   name: 'App',
@@ -36,10 +35,9 @@ export default {
     }
   },
   async mounted() {
-    const remo = new Cloud(Settings.get('api_token'))
-    this.user = await remo.getUser()
-    this.devices = await remo.getDevices()
-    this.appliances = await remo.getAppliances()
+    this.user = await Remo.getUser()
+    this.devices = await Remo.getDevices()
+    this.appliances = await Remo.getAppliances()
     console.log(this.appliances)
 
     // mock values for Remo mini
