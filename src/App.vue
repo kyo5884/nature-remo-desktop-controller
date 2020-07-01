@@ -2,9 +2,9 @@
   <div id="app" class="dark text-primary">
     <div v-for="device in devices" :key="device.id">
       <Header :device="device" />
-      <div class="m-2">
-        <p>logged in as {{ username }}</p>
-      </div>
+      <footer class="text-xs p-2 text-center">
+        logged in as {{ username }}
+      </footer>
     </div>
   </div>
 </template>
