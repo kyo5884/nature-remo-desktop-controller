@@ -6034,9 +6034,9 @@ natural-compare@^1.4.0:
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
 nature-remo@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/nature-remo/-/nature-remo-1.2.2.tgz#cf440f5d245b9c1b553a04288eb6655f754bfc26"
-  integrity sha512-iUWkzyLcLKK9i/KcUW4OUmM1NPjqbFE2evroiGkteivfUg39WQkJ/pQPH93H3lEgPhI49i1bKqXug5zQop0xVg==
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/nature-remo/-/nature-remo-1.2.3.tgz#766b75cdd6acb03dc1db9151b554b3e60cd09586"
+  integrity sha512-up1gnogRx/hakP633z2OKPmenBgk93WOsavMtSIYBv2nfQiOC/vAQbnAKjBlgwqIuxWlY9vGBl30Md97sKXZdQ==
   dependencies:
     axios "^0.19.0"
 
