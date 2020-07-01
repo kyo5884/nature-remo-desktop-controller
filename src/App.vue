@@ -1,10 +1,12 @@
 <template>
   <div id="app" class="dark text-primary">
-    <Header />
-    <div class="m-2">
-      <img alt="Vue logo" src="./assets/icon.png" />
-      <p>{{ username }}</p>
-      <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div v-for="device in devices" :key="device.id">
+      <Header :device="device" />
+      <div class="m-2">
+        <img alt="Vue logo" src="./assets/icon.png" />
+        <p>{{ username }}</p>
+        <HelloWorld msg="Welcome to Your Vue.js App" />
+      </div>
     </div>
   </div>
 </template>
@@ -25,11 +27,14 @@ export default {
   data: () => {
     return {
       username: null,
+      devices: [],
     }
   },
   async mounted() {
     const remo = new Cloud(Settings.get('api_token'))
     this.username = (await remo.getUser()).nickname
+    this.devices = await remo.getDevices()
+    console.log(this.devices)
   },
 }
 </script>
