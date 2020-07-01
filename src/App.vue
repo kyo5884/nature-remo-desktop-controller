@@ -8,7 +8,7 @@
         :appliance="appliance"
       />
       <footer class="text-xs p-2 text-center">
-        logged in as {{ username }}
+        logged in as {{ user.nickname }}
       </footer>
     </div>
   </div>
@@ -30,14 +30,14 @@ export default {
   },
   data: () => {
     return {
-      username: null,
+      user: {},
       devices: [],
       appliances: [],
     }
   },
   async mounted() {
     const remo = new Cloud(Settings.get('api_token'))
-    this.username = (await remo.getUser()).nickname
+    this.user = await remo.getUser()
     this.devices = await remo.getDevices()
     this.appliances = await remo.getAppliances()
     console.log(this.appliances)
