@@ -3,7 +3,7 @@
     <div v-for="device in devices" :key="device.id">
       <Header :device="device" />
       <div class="m-2">
-        <p>{{ username }}</p>
+        <p>logged in as {{ username }}</p>
       </div>
     </div>
   </div>
