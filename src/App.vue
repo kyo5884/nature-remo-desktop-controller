@@ -36,6 +36,17 @@ export default {
 </script>
 
 <style>
+:root {
+  --color-accent-100: #e2f8ff;
+  --color-accent-200: #c4f1ff;
+  --color-accent-300: #a8eaff;
+  --color-accent-400: #8be3fe;
+  --color-accent-500: #6edcff;
+  --color-accent-600: #25caff;
+  --color-accent-700: #00a6db;
+  --color-accent-800: #006e92;
+  --color-accent-900: #003748;
+}
 .dark {
   --color-primary: #fff;
   --color-secondary: #aaa;
