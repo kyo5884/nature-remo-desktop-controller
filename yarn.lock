@@ -6033,7 +6033,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-nature-remo@^1.2.2:
+nature-remo@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/nature-remo/-/nature-remo-1.2.3.tgz#766b75cdd6acb03dc1db9151b554b3e60cd09586"
   integrity sha512-up1gnogRx/hakP633z2OKPmenBgk93WOsavMtSIYBv2nfQiOC/vAQbnAKjBlgwqIuxWlY9vGBl30Md97sKXZdQ==
@@ -9268,6 +9268,11 @@ vue-loader@^15.9.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-material-design-icons@^4.7.1:
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/vue-material-design-icons/-/vue-material-design-icons-4.7.1.tgz#17f4a730455dd16d4a716365da16a421f1a83aea"
+  integrity sha512-Bp1ClFVpC2pfmNTq/d9O8FwvizVulg2R5M96do3yvHR720gzpdmrOLmcwXDvtFAf2v7qaXpf1572NnTF80oOjw==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
