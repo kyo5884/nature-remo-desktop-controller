@@ -1,7 +1,12 @@
 <template>
   <header class="text-white sticky top-0 inset-x-0 flex flex-col p-3">
     <div class="h-12 flex items-center justify-between flex-1">
-      <h1 class="font-bold p-1">{{ device.name }}</h1>
+      <h1
+        class="font-bold p-1 flex-1 overflow-hidden whitespace-no-wrap"
+        style="text-overflow: ellipsis;"
+      >
+        {{ device.name }}
+      </h1>
       <button
         @click="openSettings()"
         class="focus:outline-none focus:bg-accent-700 hover:bg-accent-800 rounded p-1"

@@ -39,7 +39,7 @@ const mb = menubar({
   index: process.env.WEBPACK_DEV_SERVER_URL,
   browserWindow: {
     ...appearance(),
-    width: 320,
+    width: 240,
     height: 720,
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone

@@ -3,9 +3,9 @@
     <h3 class="px-4 py-2 text-xs font-bold uppercase bg-background">
       {{ appliance.nickname }}
     </h3>
-    <div class="flex flex-wrap px-2 py-1 mb-2">
+    <div class="flex flex-wrap flex-col items-strech mb-3">
       <button
-        class="rounded-full w-16 h-16 text-xs m-1 flex-shrink-0 text-primary bg-background focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
+        class="text-xs py-1 px-4 text-left text-primary focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
         v-for="signal in appliance.signals"
         :key="signal.id"
         @click="sendSignal(signal.id)"
