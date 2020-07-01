@@ -1,9 +1,9 @@
 <template>
-  <section class="mb-2">
-    <h3 class="px-4 py-2 text-xs font-bold uppercase bg-background">
+  <section class="mb-1">
+    <h3 class="text-xs px-3 py-1 font-bold uppercase bg-background">
       {{ appliance.nickname }}
     </h3>
-    <div class="flex flex-wrap flex-col items-strech mb-3">
+    <div class="flex flex-wrap flex-col items-strech">
       <button
         class="text-xs py-1 px-4 text-left text-primary focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
         v-for="signal in appliance.signals"
