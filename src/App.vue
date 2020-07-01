@@ -6,7 +6,6 @@
         v-for="appliance in appliances"
         :key="appliance.id"
         :appliance="appliance"
-        @sendSignal="event => sendSignal(event)"
       />
       <footer
         class="text-xs p-2 text-center bg-background fixed bottom-0 inset-x-0"
