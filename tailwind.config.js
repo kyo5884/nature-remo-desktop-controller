@@ -3,8 +3,10 @@ module.exports = {
     colors: {
       primary: 'var(--color-primary)',
       secondary: 'var(--color-secondary)',
+      background: 'var(--color-background)',
+      'background-secondary': 'var(--color-background-secondary)',
       white: '#fff',
-      black: '#334A52',
+      black: '#334a52',
       accent: {
         100: 'var(--color-accent-100)',
         200: 'var(--color-accent-200)',

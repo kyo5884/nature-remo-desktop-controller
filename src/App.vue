@@ -8,7 +8,9 @@
         :appliance="appliance"
         @sendSignal="event => sendSignal(event)"
       />
-      <footer class="text-xs p-2 text-center">
+      <footer
+        class="text-xs p-2 text-center bg-background fixed bottom-0 inset-x-0"
+      >
         logged in as {{ user.nickname }}
       </footer>
     </div>
@@ -62,9 +64,13 @@ export default {
 .dark {
   --color-primary: #fff;
   --color-secondary: #aaa;
+  --color-background: rgba(0, 0, 0, 0.25);
+  --color-background-secondary: rgba(255, 255, 255, 0.2);
 }
 .light {
-  --color-primary: #000;
+  --color-primary: #334a52;
   --color-secondary: #555;
+  --color-background: rgba(255, 255, 255, 0.25);
+  --color-background-secondary: rgba(0, 0, 0, 0.2);
 }
 </style>
