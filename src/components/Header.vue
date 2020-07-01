@@ -10,8 +10,14 @@
       </button>
     </div>
     <div class="flex items-center">
-      <h2 class="text-4xl px-1 flex items-center">
-        <icon-thermometer-low :size="32" />{{ device.newest_events.te.val }}
+      <h2 class="text-3xl mr-3 flex items-center">
+        <icon-thermometer-low class="m-1" />{{ device.newest_events.te.val }}
+      </h2>
+      <h2
+        v-if="device.newest_events.hu"
+        class="text-3xl mr-3 flex items-center"
+      >
+        <icon-water-percent class="m-1" />{{ device.newest_events.hu.val }}
       </h2>
     </div>
   </header>
