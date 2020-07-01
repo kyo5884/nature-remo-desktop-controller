@@ -1,12 +1,14 @@
 # Natrue Remo Desktop Controller
 
+![5BA4355D-40BF-4E8C-96A4-D92AD93D4C02](https://user-images.githubusercontent.com/286439/86288367-c1884800-bc24-11ea-9f88-cfd644b32042.jpeg)
+
 Menubar / Tasktray app for [Nature Remo](https://en.nature.global/en/)
 
 Developed with Vue and Electron
 
 ## Usage
 
-⚠WIP⚠
+⚠WIP⚠ This project is currently developing and may not work correctly.  
 
 1. Go to https://home.nature.global/
 2. Login and allow access
