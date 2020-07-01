@@ -31,6 +31,10 @@ export default {
     this.username = (await remo.getUser()).nickname
     this.devices = await remo.getDevices()
     console.log(this.devices)
+
+    // mock values for Remo mini
+    // this.devices[0].newest_events.hu = { val: 68 }
+    // this.devices[0].newest_events.li = { val: 70.5 }
   },
 }
 </script>
