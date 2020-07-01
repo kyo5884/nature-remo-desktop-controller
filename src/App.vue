@@ -2,6 +2,11 @@
   <div id="app" class="dark text-primary">
     <div v-for="device in devices" :key="device.id">
       <Header :device="device" />
+      <Appliance
+        v-for="appliance in appliances"
+        :key="appliance.id"
+        :appliance="appliance"
+      />
       <footer class="text-xs p-2 text-center">
         logged in as {{ username }}
       </footer>
@@ -10,7 +15,9 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import Header from './components/Header'
+import Appliance from './components/Appliance'
+
 import Settings from './settings'
 
 import { Cloud } from 'nature-remo'
@@ -19,18 +26,21 @@ export default {
   name: 'App',
   components: {
     Header,
+    Appliance,
   },
   data: () => {
     return {
       username: null,
       devices: [],
+      appliances: [],
     }
   },
   async mounted() {
     const remo = new Cloud(Settings.get('api_token'))
     this.username = (await remo.getUser()).nickname
     this.devices = await remo.getDevices()
-    console.log(this.devices)
+    this.appliances = await remo.getAppliances()
+    console.log(this.appliances)
 
     // mock values for Remo mini
     // this.devices[0].newest_events.hu = { val: 68 }
