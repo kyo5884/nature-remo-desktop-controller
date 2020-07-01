@@ -39,8 +39,8 @@ const mb = menubar({
   index: process.env.WEBPACK_DEV_SERVER_URL,
   browserWindow: {
     ...appearance(),
-    width: 320,
-    height: 720,
+    width: 200,
+    height: 640,
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
