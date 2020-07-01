@@ -2,35 +2,44 @@
   <div id="app" class="dark text-primary">
     <div v-for="device in devices" :key="device.id">
       <Header :device="device" />
-      <div class="m-2">
-        <p>logged in as {{ username }}</p>
-      </div>
+      <Appliance
+        v-for="appliance in appliances"
+        :key="appliance.id"
+        :appliance="appliance"
+      />
+      <footer
+        class="text-xs p-2 text-center bg-background fixed bottom-0 inset-x-0"
+      >
+        logged in as {{ user.nickname }}
+      </footer>
     </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Settings from './settings'
+import Header from './components/Header'
+import Appliance from './components/Appliance'
 
-import { Cloud } from 'nature-remo'
+import Remo from './remo'
 
 export default {
   name: 'App',
   components: {
     Header,
+    Appliance,
   },
   data: () => {
     return {
-      username: null,
+      user: {},
       devices: [],
+      appliances: [],
     }
   },
   async mounted() {
-    const remo = new Cloud(Settings.get('api_token'))
-    this.username = (await remo.getUser()).nickname
-    this.devices = await remo.getDevices()
-    console.log(this.devices)
+    this.user = await Remo.getUser()
+    this.devices = await Remo.getDevices()
+    this.appliances = await Remo.getAppliances()
+    console.log(this.appliances)
 
     // mock values for Remo mini
     // this.devices[0].newest_events.hu = { val: 68 }
@@ -54,9 +63,13 @@ export default {
 .dark {
   --color-primary: #fff;
   --color-secondary: #aaa;
+  --color-background: rgba(0, 0, 0, 0.25);
+  --color-background-secondary: rgba(255, 255, 255, 0.2);
 }
 .light {
-  --color-primary: #000;
+  --color-primary: #334a52;
   --color-secondary: #555;
+  --color-background: rgba(255, 255, 255, 0.25);
+  --color-background-secondary: rgba(0, 0, 0, 0.2);
 }
 </style>
