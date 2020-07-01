@@ -1,16 +1,15 @@
 <template>
   <div id="app" class="dark text-primary">
-    <Header />
-    <div class="m-2">
-      <img alt="Vue logo" src="./assets/icon.png" />
-      <p>{{ username }}</p>
-      <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div v-for="device in devices" :key="device.id">
+      <Header :device="device" />
+      <div class="m-2">
+        <p>logged in as {{ username }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
 import Settings from './settings'
 
@@ -19,22 +18,39 @@ import { Cloud } from 'nature-remo'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     Header,
   },
   data: () => {
     return {
       username: null,
+      devices: [],
     }
   },
   async mounted() {
     const remo = new Cloud(Settings.get('api_token'))
     this.username = (await remo.getUser()).nickname
+    this.devices = await remo.getDevices()
+    console.log(this.devices)
+
+    // mock values for Remo mini
+    // this.devices[0].newest_events.hu = { val: 68 }
+    // this.devices[0].newest_events.il = { val: 70.5 }
   },
 }
 </script>
 
 <style>
+:root {
+  --color-accent-100: #e2f8ff;
+  --color-accent-200: #c4f1ff;
+  --color-accent-300: #a8eaff;
+  --color-accent-400: #8be3fe;
+  --color-accent-500: #6edcff;
+  --color-accent-600: #25caff;
+  --color-accent-700: #00a6db;
+  --color-accent-800: #006e92;
+  --color-accent-900: #003748;
+}
 .dark {
   --color-primary: #fff;
   --color-secondary: #aaa;

@@ -1,6 +1,6 @@
 {
   "name": "nature-remo-desktop-controller",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -16,9 +16,10 @@
   "dependencies": {
     "electron-store": "^5.2.0",
     "menubar": "^9.0.1",
-    "nature-remo": "^1.2.2",
+    "nature-remo": "^1.2.3",
     "tailwindcss": "^1.4.6",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-material-design-icons": "^4.7.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "~4.4.0",
