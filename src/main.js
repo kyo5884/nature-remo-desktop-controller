@@ -7,10 +7,14 @@ import Cog from 'vue-material-design-icons/Cog.vue'
 import ThermometerLow from 'vue-material-design-icons/ThermometerLow.vue'
 import Water from 'vue-material-design-icons/Water.vue'
 import LightbulbOn from 'vue-material-design-icons/LightbulbOn.vue'
+import WeatherWindy from 'vue-material-design-icons/WeatherWindy.vue'
+import SwapVerticalBold from 'vue-material-design-icons/SwapVerticalBold.vue'
 Vue.component('icon-cog', Cog)
 Vue.component('icon-thermometer-low', ThermometerLow)
 Vue.component('icon-water', Water)
 Vue.component('icon-lightbulb-on', LightbulbOn)
+Vue.component('icon-weather-windy', WeatherWindy)
+Vue.component('icon-swap-vertical-bold', SwapVerticalBold)
 
 Vue.config.productionTip = false
 
