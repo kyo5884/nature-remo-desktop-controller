@@ -30,48 +30,37 @@
         </label>
       </div>
     </h3>
-    <div v-if="appliance.type === 'AC'">
-      <div v-for="(mode, key) in appliance.aircon.range.modes" :key="key">
-        <button
-          class="text-xl"
-          @click="
-            acSettings.mode = key
-            updateAirconSettings()
-          "
+    <div v-if="appliance.type === 'AC'" class="text-xs flex flex-col">
+      <select v-model="acSettings.temp" @change="updateAirconSettings()">
+        <option
+          v-for="value in appliance.aircon.range.modes[acSettings.mode].temp"
+          :key="value"
         >
+          {{ value }}
+        </option>
+      </select>
+
+      <select v-model="acSettings.mode" @change="updateAirconSettings()">
+        <option v-for="(mode, key) in appliance.aircon.range.modes" :key="key">
           {{ key }}
-        </button>
-        <div v-if="key === acSettings.mode">
-          <div>
-            <input
-              type="range"
-              :list="`${appliance.id}_${key}_temp`"
-              v-model="acSettings.temp"
-              :min="mode.temp[0]"
-              :max="mode.temp[mode.temp.length - 1]"
-              @mouseup="updateAirconSettings()"
-            />
-            <datalist :id="`${appliance.id}_${key}_temp`">
-              <option
-                v-for="tick in mode.temp"
-                :key="tick"
-                :value="tick"
-              ></option>
-            </datalist>
-            {{ acSettings.temp }}
-          </div>
-          <div>
-            <span v-for="(vol, index) in mode.vol" :key="index">
-              {{ vol }}
-            </span>
-          </div>
-          <div>
-            <span v-for="(dir, index) in mode.dir" :key="index">
-              {{ dir }}
-            </span>
-          </div>
-        </div>
-      </div>
+        </option>
+      </select>
+      <select v-model="acSettings.vol" @change="updateAirconSettings()">
+        <option
+          v-for="value in appliance.aircon.range.modes[acSettings.mode].vol"
+          :key="value"
+        >
+          {{ value }}
+        </option>
+      </select>
+      <select v-model="acSettings.dir" @change="updateAirconSettings()">
+        <option
+          v-for="value in appliance.aircon.range.modes[acSettings.mode].dir"
+          :key="value"
+        >
+          {{ value }}
+        </option>
+      </select>
     </div>
     <div class="flex flex-wrap flex-col items-strech">
       <button
@@ -137,3 +126,12 @@ export default {
   },
 }
 </script>
+<style scoped>
+select {
+  @apply flex-1 bg-transparent relative py-1 px-4 appearance-none;
+}
+select:hover,
+select:focus {
+  @apply outline-none bg-background-secondary;
+}
+</style>

@@ -18,6 +18,7 @@ module.exports = {
         800: 'var(--color-accent-800)',
         900: 'var(--color-accent-900)',
       },
+      transparent: 'transparent',
     },
   },
 }
