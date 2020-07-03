@@ -30,6 +30,49 @@
         </label>
       </div>
     </h3>
+    <div v-if="appliance.type === 'AC'">
+      <div v-for="(mode, key) in appliance.aircon.range.modes" :key="key">
+        <button
+          class="text-xl"
+          @click="
+            acSettings.mode = key
+            updateAirconSettings()
+          "
+        >
+          {{ key }}
+        </button>
+        <div v-if="key === acSettings.mode">
+          <div>
+            <input
+              type="range"
+              :list="`${appliance.id}_${key}_temp`"
+              v-model="acSettings.temp"
+              :min="mode.temp[0]"
+              :max="mode.temp[mode.temp.length - 1]"
+              @mouseup="updateAirconSettings()"
+            />
+            <datalist :id="`${appliance.id}_${key}_temp`">
+              <option
+                v-for="tick in mode.temp"
+                :key="tick"
+                :value="tick"
+              ></option>
+            </datalist>
+            {{ acSettings.temp }}
+          </div>
+          <div>
+            <span v-for="(vol, index) in mode.vol" :key="index">
+              {{ vol }}
+            </span>
+          </div>
+          <div>
+            <span v-for="(dir, index) in mode.dir" :key="index">
+              {{ dir }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="flex flex-wrap flex-col items-strech">
       <button
         class="text-xs py-1 px-4 text-left text-primary focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
@@ -54,25 +97,42 @@ export default {
   },
   data: () => {
     return {
-      acToggle: null,
+      acSettings: null,
     }
   },
-  mounted() {
+  computed: {
+    acToggle: {
+      get() {
+        return this.acSettings.button !== 'power-off'
+      },
+      set(value) {
+        if (value) this.acSettings.button = ''
+        else this.acSettings.button = 'power-off'
+        this.updateAirconSettings()
+      },
+    },
+  },
+  created() {
     if (this.appliance.type === 'AC') {
-      this.acToggle = this.appliance.settings.button !== 'power-off'
+      this.acSettings = this.appliance.settings
+
+      console.log(this.appliance.aircon.range)
     }
   },
   methods: {
     sendSignal(signalId) {
       Remo.sendSignal(signalId)
     },
-  },
-  watch: {
-    acToggle(newValue) {
-      if (newValue === false)
-        Remo.updateAirconSettings(this.appliance.id, {
-          button: 'power-off',
-        })
+    async updateAirconSettings() {
+      const response = await Remo.updateAirconSettings(this.appliance.id, {
+        temperature: this.acSettings.temp,
+        operation_mode: this.acSettings.mode,
+        air_volume: this.acSettings.vol,
+        air_direction: this.acSettings.dir,
+        button: this.acSettings.button,
+      })
+      this.acSettings = response
+      console.log(this.acSettings)
     },
   },
 }
