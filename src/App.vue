@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="dark text-primary">
+  <div id="app" class="text-primary">
     <div v-for="device in devices" :key="device.id">
       <Header :device="device" />
       <Appliance
@@ -83,16 +83,20 @@ export default {
   --color-accent-800: #006e92;
   --color-accent-900: #003748;
 }
-.dark {
-  --color-primary: #fff;
-  --color-secondary: #aaa;
-  --color-background: rgba(0, 0, 0, 0.25);
-  --color-background-secondary: rgba(255, 255, 255, 0.2);
+@media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) {
+  :root {
+    --color-primary: #fff;
+    --color-secondary: #aaa;
+    --color-background: rgba(0, 0, 0, 0.25);
+    --color-background-secondary: rgba(255, 255, 255, 0.2);
+  }
 }
-.light {
-  --color-primary: #334a52;
-  --color-secondary: #555;
-  --color-background: rgba(255, 255, 255, 0.25);
-  --color-background-secondary: rgba(0, 0, 0, 0.2);
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary: #334a52;
+    --color-secondary: #555;
+    --color-background: rgba(255, 255, 255, 0.25);
+    --color-background-secondary: rgba(0, 0, 0, 0.2);
+  }
 }
 </style>
