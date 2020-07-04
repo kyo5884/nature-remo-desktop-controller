@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './assets/tailwind.css'
+import './assets/colors.css'
 
 import 'vue-material-design-icons/styles.css'
 import Cog from 'vue-material-design-icons/Cog.vue'
