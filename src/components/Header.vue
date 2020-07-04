@@ -9,15 +9,36 @@
       {{ device.name }}
     </h1>
     <div class="flex">
-      <h2 v-if="device.newest_events.te" class="mr-1">
+      <h2
+        v-if="device.newest_events.te"
+        class="mr-1"
+        :title="
+          'Room temperature \n' +
+            new Date(device.newest_events.te.created_at).toString()
+        "
+      >
         <icon-thermometer-low class="text-base align-text-top mr-px" />
         <span class="text-xs">{{ device.newest_events.te.val }}</span>
       </h2>
-      <h2 v-if="device.newest_events.hu" class="mr-1">
+      <h2
+        v-if="device.newest_events.hu"
+        class="mr-1"
+        :title="
+          'Room humidity \n' +
+            new Date(device.newest_events.hu.created_at).toString()
+        "
+      >
         <icon-water class="text-base align-text-top mr-px" />
         <span class="text-xs">{{ device.newest_events.hu.val }}</span>
       </h2>
-      <h2 v-if="device.newest_events.il" class="mr-1">
+      <h2
+        v-if="device.newest_events.il"
+        class="mr-1"
+        :title="
+          'Room brightness \n' +
+            new Date(device.newest_events.il.created_at).toString()
+        "
+      >
         <icon-lightbulb-on class="text-base align-text-top mr-px" />
         <span class="text-xs">{{ device.newest_events.il.val }}</span>
       </h2>

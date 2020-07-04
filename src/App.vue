@@ -75,8 +75,14 @@ export default {
       }
 
       // mock values for Remo mini
-      // this.devices[0].newest_events.hu = { val: 68 }
-      // this.devices[0].newest_events.il = { val: 70.5 }
+      // this.devices[0].newest_events.hu = {
+      //   val: 68,
+      //   created_at: '2004-04-01T00:00:01Z',
+      // }
+      // this.devices[0].newest_events.il = {
+      //   val: 520,
+      //   created_at: '2020-02-20T20:20:20Z',
+      // }
 
       console.log(this.devices)
       console.log(this.appliances)
