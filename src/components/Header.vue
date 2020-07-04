@@ -32,11 +32,3 @@ export default {
   },
 }
 </script>
-<style scoped>
-header {
-  background: linear-gradient(
-    var(--color-accent-700) -200%,
-    var(--color-accent-800) 300%
-  );
-}
-</style>
