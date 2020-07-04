@@ -17,12 +17,14 @@
       <div>
         <button
           @click="getValues()"
+          title="Refresh"
           class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
         >
           <icon-refresh />
         </button>
         <button
           @click="openSettings()"
+          title="Settings"
           class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
         >
           <icon-cog />
