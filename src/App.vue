@@ -84,3 +84,8 @@ export default {
   },
 }
 </script>
+<style>
+.material-design-icon {
+  pointer-events: none;
+}
+</style>

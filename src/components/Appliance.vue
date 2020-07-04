@@ -30,8 +30,8 @@
         </label>
       </div>
     </h3>
-    <div v-if="appliance.type === 'AC'" class="text-xs flex flex-col">
-      <div class="flex mx-4 my-1">
+    <div v-if="appliance.type === 'AC'" class="text-xs flex flex-wrap pl-4">
+      <label class="flex py-1 w-1/2" title="Operation Mode">
         <icon-cog />
         <select v-model="acSettings.mode" @change="updateAirconSettings()">
           <option
@@ -41,6 +41,8 @@
             {{ key }}
           </option>
         </select>
+      </label>
+      <label class="flex py-1 w-1/2" title="Temperature">
         <icon-thermometer-low />
         <select v-model="acSettings.temp" @change="updateAirconSettings()">
           <option
@@ -50,8 +52,8 @@
             {{ value }}
           </option>
         </select>
-      </div>
-      <div class="flex mx-4 my-1">
+      </label>
+      <label class="flex py-1 w-1/2" title="Air volume">
         <icon-weather-windy />
         <select v-model="acSettings.vol" @change="updateAirconSettings()">
           <option
@@ -61,6 +63,8 @@
             {{ value }}
           </option>
         </select>
+      </label>
+      <label class="flex py-1 w-1/2" title="Air direction">
         <icon-swap-vertical-bold />
         <select v-model="acSettings.dir" @change="updateAirconSettings()">
           <option
@@ -70,7 +74,7 @@
             {{ value }}
           </option>
         </select>
-      </div>
+      </label>
     </div>
     <div class="flex flex-wrap flex-col items-strech">
       <button
