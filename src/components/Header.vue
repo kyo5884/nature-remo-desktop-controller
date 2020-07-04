@@ -1,6 +1,6 @@
 <template>
   <header
-    class="text-white sticky backdrop-blur bg-accent-600 bg-opacity-75 top-0 inset-x-0 flex flex-col p-2 z-30 shadow border-b border-accent-900"
+    class="text-white sticky backdrop-blur bg-accent-700 bg-opacity-75 top-0 inset-x-0 flex flex-col p-2 z-30 shadow-lg border-b border-accent-800 border-opacity-25"
   >
     <h1
       class="h-6 text-sm font-bold p-1 overflow-hidden whitespace-no-wrap"

@@ -1,4 +1,7 @@
 @media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) {
+  body {
+    @apply bg-gray;
+  }
   :root {
     --color-primary: #fff;
     --color-secondary: #aaa;
@@ -7,10 +10,13 @@
   }
 }
 @media (prefers-color-scheme: light) {
+  body {
+    @apply bg-white;
+  }
   :root {
     --color-primary: #334a52;
     --color-secondary: #555;
-    --color-background: rgba(255, 255, 255, 0.25);
+    --color-background: rgba(200, 200, 200, 0.25);
     --color-background-secondary: rgba(0, 0, 0, 0.05);
   }
 }

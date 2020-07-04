@@ -11,7 +11,7 @@
       />
     </div>
     <footer
-      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0 backdrop-blur -mb-px"
+      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0 backdrop-blur -mb-px shadow-xl"
     >
       <div class="mx-3">Logged in as {{ user.nickname }}</div>
       <button

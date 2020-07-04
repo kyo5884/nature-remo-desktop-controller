@@ -13,7 +13,7 @@
         />
         <label :for="'toggle_' + appliance.id" class="block relative">
           <div
-            class="w-8 h-4 bg-white rounded-full shadow-inner cursor-pointer"
+            class="w-8 h-4 bg-background-secondary rounded-full shadow-inner cursor-pointer border-black border-opacity-25 border"
             :class="{
               'bg-accent-700 text-white': acToggle,
               'text-right text-black': !acToggle,
@@ -21,7 +21,7 @@
             style="transition: all .25s ease-out;"
           ></div>
           <div
-            class="w-4 h-4 bg-white rounded-full border border-black absolute top-0 left-0"
+            class="w-4 h-4 bg-white rounded-full border border-black border-opacity-50 absolute top-0 left-0"
             :class="{
               'ml-4': acToggle,
             }"
