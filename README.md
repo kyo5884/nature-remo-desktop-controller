@@ -2,6 +2,8 @@
 
 ![5BA4355D-40BF-4E8C-96A4-D92AD93D4C02](https://user-images.githubusercontent.com/286439/86288367-c1884800-bc24-11ea-9f88-cfd644b32042.jpeg)
 
+![Build/release](https://github.com/kyo5884/nature-remo-desktop-controller/workflows/Build/release/badge.svg?branch=master)
+
 Menubar / Tasktray app for [Nature Remo](https://en.nature.global/en/)
 
 Developed with Vue and Electron
