@@ -1,6 +1,7 @@
 # Natrue Remo Desktop Controller
 
-![5BA4355D-40BF-4E8C-96A4-D92AD93D4C02](https://user-images.githubusercontent.com/286439/86288367-c1884800-bc24-11ea-9f88-cfd644b32042.jpeg)
+![dark](https://user-images.githubusercontent.com/286439/86510243-067ccc00-be29-11ea-839a-d3765faf3289.png)
+![light](https://user-images.githubusercontent.com/286439/86510244-0977bc80-be29-11ea-83f5-0dc51a656b7d.png)
 
 ![Build/release](https://github.com/kyo5884/nature-remo-desktop-controller/workflows/Build/release/badge.svg?branch=master)
 
