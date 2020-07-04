@@ -12,17 +12,15 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
-        env:
-          NODE_ENV: production
         with:
           use_vue_cli: true
 
