@@ -3,7 +3,7 @@
 /* global __static */
 
 import { protocol } from 'electron'
-// import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
+import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 
 import { menubar } from 'menubar'
@@ -36,7 +36,9 @@ const mb = menubar({
     __static,
     process.platform === 'win32' ? 'icons/icon.ico' : 'icons/16x16.png'
   ),
-  index: process.env.WEBPACK_DEV_SERVER_URL,
+  index: isDevelopment
+    ? process.env.WEBPACK_DEV_SERVER_URL
+    : 'app://./index.html',
   browserWindow: {
     ...appearance(),
     width: 200,
@@ -58,6 +60,8 @@ mb.on('ready', async () => {
     } catch (e) {
       console.error('Vue Devtools failed to install:', e.toString())
     }
+  } else {
+    createProtocol('app')
   }
 })
 mb.on('after-create-window', () => {
