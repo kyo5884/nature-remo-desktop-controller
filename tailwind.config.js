@@ -23,7 +23,7 @@ module.exports = {
     },
     backdropFilter: {
       none: 'none',
-      blur: 'blur(20px)',
+      blur: 'blur(32px)',
     },
   },
   plugins: [require('tailwindcss-filters')],
