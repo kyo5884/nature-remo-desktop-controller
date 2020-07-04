@@ -1,0 +1,27 @@
+:root {
+  --color-accent-100: #e2f8ff;
+  --color-accent-200: #c4f1ff;
+  --color-accent-300: #a8eaff;
+  --color-accent-400: #8be3fe;
+  --color-accent-500: #6edcff;
+  --color-accent-600: #25caff;
+  --color-accent-700: #00a6db;
+  --color-accent-800: #006e92;
+  --color-accent-900: #003748;
+}
+@media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) {
+  :root {
+    --color-primary: #fff;
+    --color-secondary: #aaa;
+    --color-background: rgba(0, 0, 0, 0.25);
+    --color-background-secondary: rgba(255, 255, 255, 0.2);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary: #334a52;
+    --color-secondary: #555;
+    --color-background: rgba(255, 255, 255, 0.25);
+    --color-background-secondary: rgba(0, 0, 0, 0.05);
+  }
+}

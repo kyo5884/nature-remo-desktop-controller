@@ -1,5 +1,5 @@
 <template>
-  <header class="text-white sticky top-0 inset-x-0 flex flex-col p-2">
+  <header class="text-white sticky top-0 inset-x-0 flex flex-col p-2 z-30">
     <h1
       class="h-6 text-sm font-bold p-1 overflow-hidden whitespace-no-wrap"
       style="text-overflow: ellipsis;"
@@ -35,8 +35,8 @@ export default {
 <style scoped>
 header {
   background: linear-gradient(
-    var(--color-accent-700) -20%,
-    var(--color-accent-800) 120%
+    var(--color-accent-700) -200%,
+    var(--color-accent-800) 300%
   );
 }
 </style>

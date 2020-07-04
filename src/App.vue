@@ -1,27 +1,28 @@
 <template>
-  <div id="app" class="dark text-primary">
-    <div v-for="device in devices" :key="device.id">
+  <div id="app" class="text-primary">
+    <div v-for="device in devices" :key="device.id" class="mb-10">
       <Header :device="device" />
       <Appliance
-        v-for="appliance in appliances"
+        v-for="appliance in appliances.filter(
+          item => item.device.id === device.id
+        )"
         :key="appliance.id"
         :appliance="appliance"
       />
-      <footer
-        class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0"
-      >
-        <div class="m-2">Logged in as {{ user.nickname }}</div>
-        <button
-          @click="openSettings()"
-          class="p-2 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
-        >
-          <icon-cog />
-        </button>
-      </footer>
     </div>
+    <footer
+      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0"
+    >
+      <div class="mx-3">Logged in as {{ user.nickname }}</div>
+      <button
+        @click="openSettings()"
+        class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
+      >
+        <icon-cog />
+      </button>
+    </footer>
   </div>
 </template>
-
 <script>
 import Header from './components/Header'
 import Appliance from './components/Appliance'
@@ -70,29 +71,3 @@ export default {
   },
 }
 </script>
-
-<style>
-:root {
-  --color-accent-100: #e2f8ff;
-  --color-accent-200: #c4f1ff;
-  --color-accent-300: #a8eaff;
-  --color-accent-400: #8be3fe;
-  --color-accent-500: #6edcff;
-  --color-accent-600: #25caff;
-  --color-accent-700: #00a6db;
-  --color-accent-800: #006e92;
-  --color-accent-900: #003748;
-}
-.dark {
-  --color-primary: #fff;
-  --color-secondary: #aaa;
-  --color-background: rgba(0, 0, 0, 0.25);
-  --color-background-secondary: rgba(255, 255, 255, 0.2);
-}
-.light {
-  --color-primary: #334a52;
-  --color-secondary: #555;
-  --color-background: rgba(255, 255, 255, 0.25);
-  --color-background-secondary: rgba(0, 0, 0, 0.2);
-}
-</style>
