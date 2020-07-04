@@ -3,22 +3,24 @@
     <div v-for="device in devices" :key="device.id">
       <Header :device="device" />
       <Appliance
-        v-for="appliance in appliances"
+        v-for="appliance in appliances.filter(
+          item => item.device.id === device.id
+        )"
         :key="appliance.id"
         :appliance="appliance"
       />
-      <footer
-        class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0"
-      >
-        <div class="m-2">Logged in as {{ user.nickname }}</div>
-        <button
-          @click="openSettings()"
-          class="p-2 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
-        >
-          <icon-cog />
-        </button>
-      </footer>
     </div>
+    <footer
+      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0"
+    >
+      <div class="m-2">Logged in as {{ user.nickname }}</div>
+      <button
+        @click="openSettings()"
+        class="p-2 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
+      >
+        <icon-cog />
+      </button>
+    </footer>
   </div>
 </template>
 <script>
