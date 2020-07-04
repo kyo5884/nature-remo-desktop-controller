@@ -21,5 +21,10 @@ module.exports = {
       },
       transparent: 'transparent',
     },
+    backdropFilter: {
+      none: 'none',
+      blur: 'blur(20px)',
+    },
   },
+  plugins: [require('tailwindcss-filters')],
 }
