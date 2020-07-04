@@ -1,7 +1,14 @@
 {
   "name": "nature-remo-desktop-controller",
+  "productName": "Nature Remo Controller",
+  "description": "Menubar / Tasktray app for Nature Remo",
+  "repository": "https://github.com/kyo5884/nature-remo-desktop-controller",
+  "homepage": "https://github.com/kyo5884/nature-remo-desktop-controller",
   "version": "0.5.4",
   "license": "MIT",
+  "author": {
+    "name": "kyo5884"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
