@@ -29,7 +29,7 @@ const appearance = () => {
 const mb = menubar({
   icon: path.join(
     __static,
-    process.platform === 'win32' ? 'icons/icon.ico' : 'icons/16x16.png'
+    process.platform === 'win32' ? 'icons/icon.ico' : 'icons/TrayTemplate.png'
   ),
   index: isDevelopment
     ? process.env.WEBPACK_DEV_SERVER_URL
