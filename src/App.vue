@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="text-primary">
-    <div v-for="device in devices" :key="device.id">
+    <div v-for="device in devices" :key="device.id" class="mb-10">
       <Header :device="device" />
       <Appliance
         v-for="appliance in appliances.filter(
@@ -13,10 +13,10 @@
     <footer
       class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0"
     >
-      <div class="m-2">Logged in as {{ user.nickname }}</div>
+      <div class="mx-3">Logged in as {{ user.nickname }}</div>
       <button
         @click="openSettings()"
-        class="p-2 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
+        class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
       >
         <icon-cog />
       </button>
