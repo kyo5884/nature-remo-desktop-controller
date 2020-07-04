@@ -112,15 +112,21 @@ export default {
     },
   },
   created() {
-    if (this.appliance.type === 'AC') {
-      this.acSettings = this.appliance.settings
-
-      console.log(this.appliance.aircon.range)
-    }
+    this.loadSettings()
+  },
+  beforeUpdate() {
+    this.loadSettings()
   },
   methods: {
     sendSignal(signalId) {
       Remo.sendSignal(signalId)
+    },
+    loadSettings() {
+      if (this.appliance.type === 'AC') {
+        this.acSettings = this.appliance.settings
+
+        console.log(this.appliance.aircon.range)
+      }
     },
     async updateAirconSettings() {
       const response = await Remo.updateAirconSettings(this.appliance.id, {
