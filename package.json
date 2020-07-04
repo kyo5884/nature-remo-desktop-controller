@@ -1,6 +1,6 @@
 {
   "name": "nature-remo-desktop-controller",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",

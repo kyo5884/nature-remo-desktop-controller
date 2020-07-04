@@ -8,6 +8,7 @@ module.exports = {
       'background-secondary': 'var(--color-background-secondary)',
       white: '#fff',
       black: '#334a52',
+      gray: '#212121',
       accent: {
         100: '#e2f8ff',
         200: '#c4f1ff',

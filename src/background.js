@@ -22,10 +22,7 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 const appearance = () => {
-  if (process.platform === 'darwin')
-    return {
-      backgroundColor: '#212121',
-    }
+  if (process.platform === 'darwin') return {}
   else return {}
 }
 

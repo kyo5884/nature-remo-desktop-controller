@@ -11,15 +11,25 @@
       />
     </div>
     <footer
-      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0 backdrop-blur -mb-px"
+      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0 backdrop-blur -mb-px shadow-xl"
     >
-      <div class="mx-3">Logged in as {{ user.nickname }}</div>
-      <button
-        @click="openSettings()"
-        class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
-      >
-        <icon-cog />
-      </button>
+      <div class="ml-3"><icon-account class="mr-2" />{{ user.nickname }}</div>
+      <div>
+        <button
+          @click="getValues()"
+          title="Refresh"
+          class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
+        >
+          <icon-refresh />
+        </button>
+        <button
+          @click="openSettings()"
+          title="Settings"
+          class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
+        >
+          <icon-cog />
+        </button>
+      </div>
     </footer>
   </div>
 </template>
@@ -49,25 +59,39 @@ export default {
       this.openSettings()
       return false
     }
-
-    try {
-      this.user = await Remo.getUser()
-      this.devices = await Remo.getDevices()
-      this.appliances = await Remo.getAppliances()
-    } catch (error) {
-      console.error(error)
-    }
-
-    console.log(this.appliances)
-
-    // mock values for Remo mini
-    // this.devices[0].newest_events.hu = { val: 68 }
-    // this.devices[0].newest_events.il = { val: 70.5 }
+    await this.getValues()
   },
   methods: {
     openSettings() {
       Settings.openInEditor()
     },
+    async getValues() {
+      try {
+        this.user = await Remo.getUser()
+        this.devices = await Remo.getDevices()
+        this.appliances = await Remo.getAppliances()
+      } catch (error) {
+        console.error(error)
+      }
+
+      // mock values for Remo mini
+      // this.devices[0].newest_events.hu = {
+      //   val: 68,
+      //   created_at: '2004-04-01T00:00:01Z',
+      // }
+      // this.devices[0].newest_events.il = {
+      //   val: 520,
+      //   created_at: '2020-02-20T20:20:20Z',
+      // }
+
+      console.log(this.devices)
+      console.log(this.appliances)
+    },
   },
 }
 </script>
+<style>
+.material-design-icon {
+  pointer-events: none;
+}
+</style>
