@@ -54,7 +54,12 @@ export default {
       devices: [],
       appliances: [],
       loading: false,
+      autoRefresh: null,
     }
+  },
+  created() {
+    const minutes = 5
+    this.autoRefresh = setInterval(() => this.getValues(), 1000 * 60 * minutes)
   },
   async mounted() {
     // open settings if api_token not set
@@ -93,6 +98,9 @@ export default {
       console.log(this.devices)
       console.log(this.appliances)
     },
+  },
+  beforeDestroy() {
+    clearInterval(this.autoRefresh)
   },
 }
 </script>
