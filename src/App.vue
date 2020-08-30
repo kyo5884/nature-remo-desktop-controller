@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="text-primary">
+  <div class="text-primary">
     <div v-for="device in devices" :key="device.id" class="mb-10">
       <Header :device="device" />
       <Appliance
