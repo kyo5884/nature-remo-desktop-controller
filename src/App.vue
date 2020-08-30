@@ -68,7 +68,13 @@ export default {
       this.openSettings()
       return false
     }
+
     await this.getValues()
+    try {
+      this.user = await Remo.getUser()
+    } catch (error) {
+      console.log(error)
+    }
   },
   methods: {
     openSettings() {
@@ -77,7 +83,6 @@ export default {
     async getValues() {
       this.loading = true
       try {
-        this.user = await Remo.getUser()
         this.devices = await Remo.getDevices()
         this.appliances = await Remo.getAppliances()
       } catch (error) {
