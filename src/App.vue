@@ -114,4 +114,7 @@ export default {
   /* fix material-design-icon overrides tooltip with <button title="">...</button> */
   pointer-events: none;
 }
+h3 {
+  @apply text-xs px-3 py-1 font-bold uppercase bg-background flex items-center justify-between !important;
+}
 </style>
