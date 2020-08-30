@@ -19,8 +19,10 @@
           @click="getValues()"
           title="Refresh"
           class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
+          :disabled="loading"
         >
-          <icon-refresh />
+          <icon-refresh v-if="!loading" />
+          <icon-loading v-if="loading" class="animate-spin-fast" />
         </button>
         <button
           @click="openSettings()"
@@ -51,9 +53,11 @@ export default {
       user: {},
       devices: [],
       appliances: [],
+      loading: false,
     }
   },
   async mounted() {
+    // open settings if api_token not set
     if (!Settings.get('api_token')) {
       Settings.set('api_token', '')
       this.openSettings()
@@ -66,6 +70,7 @@ export default {
       Settings.openInEditor()
     },
     async getValues() {
+      this.loading = true
       try {
         this.user = await Remo.getUser()
         this.devices = await Remo.getDevices()
@@ -73,6 +78,7 @@ export default {
       } catch (error) {
         console.error(error)
       }
+      this.loading = false
 
       // mock values for Remo mini
       // this.devices[0].newest_events.hu = {
@@ -92,6 +98,7 @@ export default {
 </script>
 <style>
 .material-design-icon {
+  /* fix material-design-icon overrides tooltip with <button title="">...</button> */
   pointer-events: none;
 }
 </style>
