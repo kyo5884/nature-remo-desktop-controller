@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="text-primary">
+  <div class="text-primary">
     <div v-for="device in devices" :key="device.id" class="mb-10">
       <Header :device="device" />
       <Appliance
@@ -11,7 +11,7 @@
       />
     </div>
     <footer
-      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0 backdrop-blur -mb-px shadow-xl"
+      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0 backdrop-blur -mb-px shadow-xl border-t border-background"
     >
       <div class="ml-3"><icon-account class="mr-2" />{{ user.nickname }}</div>
       <div>
@@ -19,8 +19,10 @@
           @click="getValues()"
           title="Refresh"
           class="px-2 py-1 focus:outline-none focus:bg-background-secondary hover:bg-background-secondary"
+          :disabled="loading"
         >
-          <icon-refresh />
+          <icon-refresh v-if="!loading" />
+          <icon-loading v-if="loading" class="animate-spin-fast" />
         </button>
         <button
           @click="openSettings()"
@@ -46,33 +48,47 @@ export default {
     Header,
     Appliance,
   },
-  data: () => {
+  data() {
     return {
       user: {},
       devices: [],
       appliances: [],
+      loading: false,
+      autoRefresh: null,
     }
   },
+  created() {
+    const minutes = Settings.get('update_interval', 5)
+    this.autoRefresh = setInterval(() => this.getValues(), 1000 * 60 * minutes)
+  },
   async mounted() {
+    // open settings if api_token not set
     if (!Settings.get('api_token')) {
       Settings.set('api_token', '')
       this.openSettings()
       return false
     }
+
     await this.getValues()
+    try {
+      this.user = await Remo.getUser()
+    } catch (error) {
+      console.log(error)
+    }
   },
   methods: {
     openSettings() {
       Settings.openInEditor()
     },
     async getValues() {
+      this.loading = true
       try {
-        this.user = await Remo.getUser()
         this.devices = await Remo.getDevices()
         this.appliances = await Remo.getAppliances()
       } catch (error) {
         console.error(error)
       }
+      this.loading = false
 
       // mock values for Remo mini
       // this.devices[0].newest_events.hu = {
@@ -84,14 +100,21 @@ export default {
       //   created_at: '2020-02-20T20:20:20Z',
       // }
 
-      console.log(this.devices)
-      console.log(this.appliances)
+      console.log('devices', this.devices)
+      console.log('appliances', this.appliances)
     },
+  },
+  beforeDestroy() {
+    clearInterval(this.autoRefresh)
   },
 }
 </script>
 <style>
 .material-design-icon {
+  /* fix material-design-icon overrides tooltip with <button title="">...</button> */
   pointer-events: none;
+}
+h3 {
+  @apply text-xs px-3 py-1 font-bold uppercase bg-background flex items-center justify-between !important;
 }
 </style>

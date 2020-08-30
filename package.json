@@ -4,7 +4,7 @@
   "description": "Menubar / Tasktray app for Nature Remo",
   "repository": "https://github.com/kyo5884/nature-remo-desktop-controller",
   "homepage": "https://github.com/kyo5884/nature-remo-desktop-controller",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "license": "MIT",
   "author": {
     "name": "kyo5884"
@@ -33,7 +33,7 @@
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "electron": "^9.0.0",
+    "electron": "^10.0.0",
     "electron-devtools-installer": "^3.1.0",
     "electron-icon-builder": "^1.0.2",
     "eslint": "^6.7.2",

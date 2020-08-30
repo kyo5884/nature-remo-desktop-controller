@@ -26,6 +26,15 @@ module.exports = {
       none: 'none',
       blur: 'blur(32px)',
     },
+    extend: {
+      animation: {
+        'spin-fast':
+          'spin 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite',
+      },
+    },
   },
   plugins: [require('tailwindcss-filters')],
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
 }
