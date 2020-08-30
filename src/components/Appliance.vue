@@ -11,9 +11,12 @@
           class="hidden"
           v-model="acToggle"
         />
-        <label :for="'toggle_' + appliance.id" class="block relative">
+        <label
+          :for="'toggle_' + appliance.id"
+          class="block relative cursor-pointer"
+        >
           <div
-            class="w-8 h-4 bg-background-secondary rounded-full shadow-inner cursor-pointer border-black border-opacity-25 border"
+            class="w-8 h-4 bg-background-secondary rounded-full shadow-inner border-black border-opacity-25 border"
             :class="{
               'bg-accent-700 text-white': acToggle,
               'text-right text-black': !acToggle,
