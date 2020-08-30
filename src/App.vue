@@ -58,7 +58,7 @@ export default {
     }
   },
   created() {
-    const minutes = 5
+    const minutes = Settings.get('update_interval', 5)
     this.autoRefresh = setInterval(() => this.getValues(), 1000 * 60 * minutes)
   },
   async mounted() {
