@@ -48,7 +48,7 @@ export default {
     Header,
     Appliance,
   },
-  data: () => {
+  data() {
     return {
       user: {},
       devices: [],
