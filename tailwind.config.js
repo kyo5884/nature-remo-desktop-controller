@@ -28,4 +28,7 @@ module.exports = {
     },
   },
   plugins: [require('tailwindcss-filters')],
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
 }
