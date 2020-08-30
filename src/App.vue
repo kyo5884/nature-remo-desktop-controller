@@ -11,7 +11,7 @@
       />
     </div>
     <footer
-      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0 backdrop-blur -mb-px shadow-xl"
+      class="text-xs bg-background flex justify-between items-center fixed bottom-0 inset-x-0 backdrop-blur -mb-px shadow-xl border-t border-background"
     >
       <div class="ml-3"><icon-account class="mr-2" />{{ user.nickname }}</div>
       <div>
