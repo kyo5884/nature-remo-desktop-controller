@@ -128,8 +128,6 @@ export default {
     loadSettings() {
       if (this.appliance.type === 'AC') {
         this.acSettings = this.appliance.settings
-
-        console.log(this.appliance.aircon.range)
       }
     },
     async updateAirconSettings() {
@@ -141,7 +139,6 @@ export default {
         button: this.acSettings.button,
       })
       this.acSettings = response
-      console.log(this.acSettings)
     },
   },
 }

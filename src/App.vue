@@ -95,8 +95,8 @@ export default {
       //   created_at: '2020-02-20T20:20:20Z',
       // }
 
-      console.log(this.devices)
-      console.log(this.appliances)
+      console.log('devices', this.devices)
+      console.log('appliances', this.appliances)
     },
   },
   beforeDestroy() {
