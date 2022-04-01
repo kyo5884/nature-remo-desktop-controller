@@ -60,6 +60,7 @@ mb.on('ready', async () => {
   }
 })
 mb.on('after-create-window', () => {
+  mb.app.dock.hide()
   if (isDevelopment) {
     mb.window.openDevTools()
     mb.window.setAlwaysOnTop(true)
